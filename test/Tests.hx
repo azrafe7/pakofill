@@ -3,6 +3,9 @@ package;
 import haxe.Timer;
 import haxe.io.Bytes;
 
+import pakofill.test.Utils.*;
+
+
 #if pakofill
 import pakofill.Compress as Compress;
 import pakofill.Uncompress as Uncompress;
@@ -14,37 +17,6 @@ import haxe.zip.Uncompress;
 
 class Tests {
 
-  static inline function bytesToArray(bytes:Bytes):Array<Int>
-  {
-    return [for (i in 0...bytes.length) bytes.get(i)];
-  }
-  
-  static inline function arrayToBytes(array:Array<Int>):Bytes
-  {
-    var bytes = Bytes.alloc(array.length);
-    for (i in 0...array.length) bytes.set(i, array[i]);
-    return bytes;
-  }
-  
-  static function assert(cond:Bool, msg:String = ""):Void
-  {
-    var err = "ERROR ";
-    err += msg;
-    
-    if (!cond) {
-      throw(err);
-    }
-  }
-  
-  static function arrayEq<T>(actual:Array<T>, expected:Array<T>)
-  {
-    for (i in 0...expected.length) {
-      assert(actual[i] == expected[i], '@$i: ${actual[i]} should be ${expected[i]}');
-    }
-    trace('array OK');
-  }
-
-  
   static function main()
   {
   #if hxPako
