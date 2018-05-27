@@ -1,0 +1,14 @@
+{
+  "name": "pakofill",
+  "url" : "https://github.com/azrafe7/pakofill",
+  "license": "MIT",
+  "tags": ["cross", "zlib", "polyfill"],
+  "description": "Compress/Uncompress polyfill for targets that don't implement it yet (using hxPako)",
+  "version": "0.0.1",
+  "releasenote": "Using hxPako 1.0.4 (compliant with zlib 1.2.8).",
+  "classPath": "src",
+  "contributors": ["azrafe7","andr83","puzrin"],
+  "dependencies": {
+    "hxPako"
+  }
+}

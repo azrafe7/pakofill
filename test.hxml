@@ -1,0 +1,9 @@
+-cp src
+-cp test
+-main Tests
+
+# use hxPako even if haxe.zip.[Un]compress is available/implemented
+#-D force_hxPako
+
+#-cs bin\cs
+#-debug
