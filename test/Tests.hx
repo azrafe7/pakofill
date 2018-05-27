@@ -3,28 +3,15 @@ package;
 import haxe.Timer;
 import haxe.io.Bytes;
 
+import pakofill.Compress;
+import pakofill.Uncompress;
 import pakofill.test.Utils.*;
-
-
-#if pakofill
-import pakofill.Compress as Compress;
-import pakofill.Uncompress as Uncompress;
-#else
-import haxe.zip.Compress;
-import haxe.zip.Uncompress;
-#end
 
 
 class Tests {
 
   static function main()
   {
-  #if hxPako
-    trace('--- USING hxPako\n');
-  #else
-    trace('--- USING haxe.zip\n');
-  #end
-  
     var t0 = Timer.stamp();
     testCompress();
     trace('ELAPSED: ${Timer.stamp() - t0}s\n');

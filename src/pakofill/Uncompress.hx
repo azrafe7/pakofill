@@ -9,6 +9,7 @@ class Uncompress {
 	
   public static function run(bytes:haxe.io.Bytes, ?bufSize:Int /* ignored for now */):haxe.io.Bytes
 	{
+    trace('pakofill.Uncompress.run()');
     var options:pako.Inflate.InflateOptions = {};
     var inflator = new pako.Inflate(options);
     
