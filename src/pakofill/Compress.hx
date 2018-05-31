@@ -30,7 +30,7 @@ class Compress {
     } catch (e:Dynamic) {
       //trace("ERR: " + e);
     #if debug 
-      if (Std.string(e).indexOf('not implemented') < 0) {
+      if (Std.string(e).indexOf('Not implemented') < 0) {
         throw e;
       }
     #end
