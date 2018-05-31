@@ -14,5 +14,10 @@
 # force usage of haxe for Uncompress
 #-D PAKOFILL_UNZIP_HAXE
 
+# force usage of hxPako for both Compress/Uncompress
+#-D PAKOFILL_HXPAKO
+# force usage of haxe for both Compress/Uncompress
+#-D PAKOFILL_HAXE
+
 #-cs bin\cs
 #-debug

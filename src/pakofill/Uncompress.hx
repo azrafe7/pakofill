@@ -7,11 +7,11 @@ import pako.zlib.Constants.ErrorStatus;
 
 class Uncompress {
 
-#if PAKOFILL_UNZIP_HAXE
+#if (PAKOFILL_UNZIP_HAXE || PAKOFILL_HAXE)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
   
-#elseif PAKOFILL_UNZIP_HXPAKO
+#elseif (PAKOFILL_UNZIP_HXPAKO || PAKOFILL_HXPAKO)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HXPAKO;
   

@@ -8,11 +8,11 @@ import pako.zlib.Constants.CompressionLevel;
 
 class Compress {
 
-#if PAKOFILL_ZIP_HAXE
+#if (PAKOFILL_ZIP_HAXE || PAKOFILL_HAXE)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
   
-#elseif PAKOFILL_ZIP_HXPAKO
+#elseif (PAKOFILL_ZIP_HXPAKO || PAKOFILL_HXPAKO)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HXPAKO;
   

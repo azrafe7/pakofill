@@ -22,7 +22,7 @@ class TravixHelpers
   #elseif sys
     Sys.exit(code);
   #else
-    println("exit(" + code + ")`. Not supported on this target.");
+    println('"exit($code)" call not supported on this target.');
   #end
   }
 }
