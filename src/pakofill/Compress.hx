@@ -20,7 +20,7 @@ class Compress {
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = {
     
-    // decide which impl to use based on wether it's available natively
+    // decide which impl to use based on whether it's available natively
     
     var bytes = haxe.io.Bytes.alloc(1);
     bytes.set(0, 0);

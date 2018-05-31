@@ -19,7 +19,7 @@ class Uncompress {
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = {
     
-    // decide which impl to use based on wether it's available natively
+    // decide which impl to use based on whether it's available natively
     
     var bytes = haxe.io.Bytes.alloc(8);
     //[120, 156, 3, 0, 0, 0, 0, 1] minimal gzipped bytes
