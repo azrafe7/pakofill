@@ -19,7 +19,7 @@ class TravixHelpers
   static public function exit(code:Int) {
   #if travix
     travix.Logger.exit(code);
-  #elseif sys
+  #elseif (sys || hxnodejs)
     Sys.exit(code);
   #else
     println('"exit($code)" call not supported on this target.');
