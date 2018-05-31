@@ -2,6 +2,9 @@ package;
 
 import haxe.Timer;
 import haxe.io.Bytes;
+import haxe.io.UInt8Array;
+import pako.zlib.Constants.CompressionLevel;
+import pakofill.ZipImplementation;
 
 import pakofill.Compress;
 import pakofill.Uncompress;
@@ -12,6 +15,18 @@ class Tests {
 
   static function main()
   {
+    trace(Macros.getDefinesAsString() + "\n");
+
+    trace('--- USED IMPLEMENTATIONS');
+    trace("COMPRESS   : " + Compress.USED_IMPLEMENTATION);
+    trace("UNCOMPRESS : " + Uncompress.USED_IMPLEMENTATION + "\n");
+    
+    // create minimal gzipped bytes (with header)
+    //var bytes = Bytes.alloc(0);
+    //var compressed = pako.Pako.deflate(UInt8Array.fromBytes(bytes));
+    //trace(compressed.length);
+    //trace(pakofill.test.Utils.bytesToArray(compressed.view.buffer));
+    
     var t0 = Timer.stamp();
     testCompress();
     trace('ELAPSED: ${Timer.stamp() - t0}s\n');

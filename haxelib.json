@@ -9,6 +9,6 @@
   "classPath": "src",
   "contributors": ["azrafe7","andr83","puzrin"],
   "dependencies": {
-    "hxPako"
+    "hxPako": "https://github.com/azrafe7/hxPako.git"
   }
 }

@@ -2,8 +2,17 @@
 -cp test
 -main Tests
 
-# use hxPako even if haxe.zip.[Un]compress is available/implemented
-#-D force_hxPako
+-lib pakofill
+
+# force usage of hxPako for Compress
+#-D PAKOFILL_ZIP_HXPAKO
+# force usage of haxe for Compress
+#-D PAKOFILL_ZIP_HAXE
+
+# force usage of hxPako for Uncompress
+#-D PAKOFILL_UNZIP_HXPAKO
+# force usage of haxe for Uncompress
+#-D PAKOFILL_UNZIP_HAXE
 
 #-cs bin\cs
 #-debug
