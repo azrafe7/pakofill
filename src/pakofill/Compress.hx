@@ -8,13 +8,15 @@ import pako.zlib.Constants.CompressionLevel;
 
 class Compress {
 
-#if (PAKOFILL_ZIP_HAXE || PAKOFILL_HAXE)
-
-  static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
-  
-#elseif (PAKOFILL_ZIP_HXPAKO || PAKOFILL_HXPAKO)
+#if (PAKOFILL_ZIP_HXPAKO || PAKOFILL_HXPAKO)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HXPAKO;
+  
+// force native impl on flash, as it doesn't support "try/catch as a right-side expression"
+// (https://github.com/HaxeFoundation/haxe/issues/7117)
+#elseif (PAKOFILL_ZIP_HAXE || PAKOFILL_HAXE || flash)
+
+  static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
   
 #else
 

@@ -7,13 +7,15 @@ import pako.zlib.Constants.ErrorStatus;
 
 class Uncompress {
 
-#if (PAKOFILL_UNZIP_HAXE || PAKOFILL_HAXE)
-
-  static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
-  
-#elseif (PAKOFILL_UNZIP_HXPAKO || PAKOFILL_HXPAKO)
+#if (PAKOFILL_UNZIP_HXPAKO || PAKOFILL_HXPAKO)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HXPAKO;
+  
+// force native impl on flash, as it doesn't support "try/catch as a right-side expression"
+// (https://github.com/HaxeFoundation/haxe/issues/7117)
+#elseif (PAKOFILL_UNZIP_HAXE || PAKOFILL_HAXE || flash)
+
+  static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
   
 #else
 
