@@ -22,7 +22,7 @@ class Uncompress {
     // decide which impl to use based on wether it's available natively
     
     var bytes = haxe.io.Bytes.alloc(8);
-    //[120, 156, 3, 0, 0, 0, 0, 1] minimal gziped bytes
+    //[120, 156, 3, 0, 0, 0, 0, 1] minimal gzipped bytes
     bytes.set(0, 120);
     bytes.set(1, 156);
     bytes.set(2,   3);
@@ -68,7 +68,7 @@ class Uncompress {
   
   public static function hxPakoRun(bytes:haxe.io.Bytes, ?bufSize:Int /* ignored for now */):haxe.io.Bytes
 	{
-    //trace(Macros.getPosMethodName());
+    //trace(pakofill.test.Macros.getPosMethodName());
     var options:pako.Inflate.InflateOptions = {};
     var inflator = new pako.Inflate(options);
     
@@ -83,7 +83,7 @@ class Uncompress {
   
   public static function haxeZipRun(bytes:haxe.io.Bytes, ?bufSize:Int):haxe.io.Bytes
   {
-    //trace(Macros.getPosMethodName());
+    //trace(pakofill.test.Macros.getPosMethodName());
     return haxe.zip.Uncompress.run(bytes, bufSize);
 	}
 }

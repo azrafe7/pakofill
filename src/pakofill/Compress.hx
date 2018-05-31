@@ -61,7 +61,7 @@ class Compress {
   
   public static function hxPakoRun(bytes:haxe.io.Bytes, level:Int):haxe.io.Bytes
   {
-    //trace(Macros.getPosMethodName());
+    //trace(pakofill.test.Macros.getPosMethodName());
     var options:pako.Deflate.DeflateOptions = {level:level};
     var deflator = new pako.Deflate(options);
     
@@ -76,7 +76,7 @@ class Compress {
   
   public static function haxeZipRun(bytes:haxe.io.Bytes, level:Int):haxe.io.Bytes
   {
-    //trace(Macros.getPosMethodName());
+    //trace(pakofill.test.Macros.getPosMethodName());
     return haxe.zip.Compress.run(bytes, level);
 	}
 }

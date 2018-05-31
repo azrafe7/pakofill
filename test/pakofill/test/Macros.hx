@@ -1,4 +1,4 @@
-package;
+package pakofill.test;
 
 import haxe.PosInfos;
 import haxe.macro.Compiler;

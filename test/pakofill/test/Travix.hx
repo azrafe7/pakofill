@@ -1,6 +1,7 @@
+package pakofill.test;
 
 
-class TravixHelpers 
+class Travix
 {
   
   // https://github.com/haxetink/tink_testrunner/blob/d762f78/src/tink/testrunner/Reporter.hx#L168-L177

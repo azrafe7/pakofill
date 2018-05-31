@@ -9,6 +9,8 @@ import pakofill.ZipImplementation;
 import pakofill.Compress;
 import pakofill.Uncompress;
 import pakofill.test.Utils.*;
+import pakofill.test.Macros;
+import pakofill.test.Travix;
 
 
 class Tests {
@@ -35,7 +37,7 @@ class Tests {
     testUncompress();
     trace('ELAPSED: ${Timer.stamp() - t0}s\n');
     
-    TravixHelpers.exit(0);
+    Travix.exit(0);
   }
   
   
