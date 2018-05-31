@@ -1,0 +1,3 @@
+-cp test
+-main Tests
+-dce full

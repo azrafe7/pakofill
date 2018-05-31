@@ -34,6 +34,8 @@ class Tests {
     t0 = Timer.stamp();
     testUncompress();
     trace('ELAPSED: ${Timer.stamp() - t0}s\n');
+    
+    TravixHelpers.exit(0);
   }
   
   
