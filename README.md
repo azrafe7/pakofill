@@ -67,11 +67,14 @@ You can override this behaviour with a set of compiler defines:
 ## supported targets
 This should work for most targets (`neko,python,node,js,java,cpp,cs,php`) with haxe 3.4.7+.
 
-flash and hl have some issues on travis (but should be ok).
+flash and hl have some issues on travis (but should be ok locally).
 
 lua is not currently passing the tests.
 
 (see [travis log](https://travis-ci.org/azrafe7/pakofill)).
+
+## advanced
+You can also state what implementation you want to use by explicitly calling `pakofill.Compress.hxPakoRun()` or `pakofill.Compress.haxeZipRun()`. 
 
 ## license
 See license file ([MIT](LICENSE)).
