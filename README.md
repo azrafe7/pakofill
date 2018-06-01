@@ -2,13 +2,15 @@
 A compress/uncompress polyfill useful for targets that don't directly support them.
 
 ## overview
-This lib tries to fill in the `run()` functions in `haxe.zip.Compress/Uncompress` where they're not directly supported. 
+This lib tries to fill in the `run()` functions in `haxe.zip.Compress/Uncompress` when they're not directly supported. 
 
 It does so with customs versions that fall back to using [hxPako](https://github.com/azrafe7/hxPako) if no supported implementation is available.
 
-For example the _plain_ js target doesn't have an implementation for compressing bytes yet. This lib aims to fix that, using the same `run()` function signature.
+For example the _plain_ js target doesn't have an implementation for compressing bytes yet. This lib aims to fix that, using a `run()` function with the same signature of that implemented in `haxe.zip`.
 
-It's almost a drop-in replacement. The only thing that you have to do is `import pakofill.Compress/Uncompress` instead of `haxe.zip.Compress/Uncompress`.
+It's _almost_ a drop-in replacement. 
+
+The **only** thing that you have to do is `import pakofill.Compress/Uncompress` instead of `import haxe.zip.Compress/Uncompress`.
 
 (**NOTE:** this is intended - for transparency/easy-debugging -, as after thinking about it I came to the conclusion that shadowing `haxe.zip` directly would cause more harm than good)
 
@@ -20,12 +22,12 @@ You can do that by running this:
 
 (this will donwload `hxPako` and set it as a haxe lib)
 
-Installing `pakofill` is very similar. Run this next:
+Installing `pakofill` is pretty much the same. Run this next:
 
 `haxelib git pakofill https://github.com/azrafe7/pakofill.git`
 
 ## examples
-The usage is exactly like how you would use `haxe.zip.Compress/Uncompress.run()`.
+You can use this lib exactly like how you would use `haxe.zip.Compress/Uncompress.run()`.
 
 ```haxe
 import haxe.io.Bytes;
@@ -63,11 +65,11 @@ You can override this behaviour with a set of compiler defines:
 (see [local_tests.hxml](local_tests.hxml))
 
 ## supported targets
-This should work for most targets (`neko,python,node,js,java,cpp,cs,php`).
+This should work for most targets (`neko,python,node,js,java,cpp,cs,php`) with haxe 3.4.7+.
 
-flash and hl have some issues on travis.
+flash and hl have some issues on travis (but should be ok).
 
-lua is not currently passing the test.
+lua is not currently passing the tests.
 
 (see [travis log](https://travis-ci.org/azrafe7/pakofill)).
 
