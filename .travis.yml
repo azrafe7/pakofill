@@ -26,12 +26,14 @@ env:
   - HAXE_TARGET=php
   - HAXE_TARGET=php7
   - HAXE_TARGET=lua
+  - HAXE_TARGET=hl
   
 matrix:
   fast_finish: true
   allow_failures:
-    - haxe: development
+   # - haxe: development
     - env: HAXE_TARGET=flash   # see https://github.com/travis-ci/travis-ci/issues/8481
+    - env: HAXE_TARGET=lua     
   exclude:
    # - haxe: development
    # - os: osx
