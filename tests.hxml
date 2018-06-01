@@ -1,3 +1,5 @@
+# used by travis
+
 -cp test
 -main Tests
 -dce full

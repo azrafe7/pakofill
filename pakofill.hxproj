@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="test.hxml" />
+    <movie path="local_tests.hxml" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -12,6 +12,7 @@
     <movie minorVersion="0" />
     <movie platform="hxml" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="Haxe 4.0.0;4.0.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
