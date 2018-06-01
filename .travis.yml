@@ -25,7 +25,7 @@ env:
   - HAXE_TARGET=cs
   - HAXE_TARGET=php
   - HAXE_TARGET=php7
-  - HAXE_TARGET=lua
+  # - HAXE_TARGET=lua
   - HAXE_TARGET=hl
   
 matrix:
@@ -34,6 +34,7 @@ matrix:
    # - haxe: development
     - env: HAXE_TARGET=flash   # see https://github.com/travis-ci/travis-ci/issues/8481
     - env: HAXE_TARGET=lua     
+    - env: HAXE_TARGET=hl     
   exclude:
    # - haxe: development
    # - os: osx
