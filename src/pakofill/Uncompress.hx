@@ -68,10 +68,10 @@ class Uncompress {
     }
   }
   
-  public static function hxPakoRun(bytes:haxe.io.Bytes, ?bufSize:Int /* ignored for now */):haxe.io.Bytes
+  public static function hxPakoRun(bytes:haxe.io.Bytes, ?bufSize:Int):haxe.io.Bytes
 	{
     //trace(pakofill.test.Macros.getPosMethodName());
-    var options:pako.Inflate.InflateOptions = {};
+    var options:pako.Inflate.InflateOptions = {chunkSize:bufSize};
     var inflator = new pako.Inflate(options);
     
     inflator.push(UInt8Array.fromBytes(bytes), true);
