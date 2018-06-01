@@ -33,8 +33,8 @@ matrix:
     - haxe: development
     - env: HAXE_TARGET=flash   # see https://github.com/travis-ci/travis-ci/issues/8481
   exclude:
-    - haxe: development
-    - os: osx
+   # - haxe: development
+   # - os: osx
     
 install:
   # hxPako must be installed from git
