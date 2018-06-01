@@ -63,9 +63,9 @@ You can override this behaviour with a set of compiler defines:
 (see [local_tests.hxml](local_tests.hxml))
 
 ## supported targets
-This should work for most targets (neko,python,node,js,java,cpp,cs,php).
+This should work for most targets (`neko,python,node,js,java,cpp,cs,php`).
 
-flash and hl have some issues on travis, but ATM they're working ok for me locally.
+flash and hl have some issues on travis.
 
 lua is not currently passing the test.
 
