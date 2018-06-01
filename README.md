@@ -1,5 +1,5 @@
 # pakofill
-A compress/uncompress polyfill usful for targets that don't directly support them.
+A compress/uncompress polyfill useful for targets that don't directly support them.
 
 ## overview
 This lib tries to fill in the `run()` functions in `haxe.zip.Compress/Uncompress` where they're not directly supported. 
@@ -25,7 +25,26 @@ Installing `pakofill` is very similar. Run this next:
 `haxelib git pakofill https://github.com/azrafe7/pakofill.git`
 
 ## examples
-The usage is much like you would use `haxe.zip.Compress/Uncompress.run()`.
+The usage is exactly like how you would use `haxe.zip.Compress/Uncompress.run()`.
+
+```haxe
+import haxe.io.Bytes;
+import haxe.io.UInt8Array;
+import pakofill.Compress;    // instead of haxe.zip.Compress
+import pakofill.Uncompress;  // instead of haxe.zip.Uncompress
+
+static function testThereAndBackAgain() {
+  var text = "long string to c0mpress";
+  var bytes = Bytes.ofString(text);
+  var compressed = Compress.run(bytes, 9);
+  
+  var uncompressed = Uncompress.run(compressed);
+  
+  var uncompressedText = bytesToString(uncompressed);
+  assert(text == uncompressedText);
+  trace(text + " == " + uncompressedText + " OK");
+}
+```
 
 (see [Tests.hx](test/Tests.hx))
 

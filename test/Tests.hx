@@ -37,6 +37,10 @@ class Tests {
     testUncompress();
     trace('ELAPSED: ${Timer.stamp() - t0}s\n');
     
+    t0 = Timer.stamp();
+    testThereAndBackAgain();
+    trace('ELAPSED: ${Timer.stamp() - t0}s\n');
+    
     Travix.exit(0);
   }
   
@@ -44,7 +48,7 @@ class Tests {
   // https://github.com/HaxeFoundation/haxe/blob/5f2926a879293c4ac19baa9f11c3c1d40c33a2e7/tests/unit/src/unitstd/haxe/zip/Compress.unit.hx
   static function testCompress()
   {
-    trace('--- testCompress');
+    trace('--- ' + Macros.getPosMethodName());
     var bytes = haxe.io.Bytes.ofString("test");
     var compressedBytes = Compress.run(bytes, 9);
     
@@ -60,7 +64,7 @@ class Tests {
   // https://github.com/HaxeFoundation/haxe/blob/5f2926a879293c4ac19baa9f11c3c1d40c33a2e7/tests/unit/src/unitstd/haxe/zip/Uncompress.unit.hx
   static function testUncompress()
   {
-    trace('--- testUncompress');
+    trace('--- ' + Macros.getPosMethodName());
     var bytes = arrayToBytes([120, 218, 43, 73, 45, 46, 1, 0, 4, 93, 1, 193]);
     var uncompressedBytes = Uncompress.run(bytes);
     
@@ -72,5 +76,19 @@ class Tests {
     
     assert(uncompressedBytes.length == 0);
     trace('len OK');
+  }
+  
+  static function testThereAndBackAgain() {
+    trace('--- ' + Macros.getPosMethodName());
+    var text = "long string to c0mpress";
+    var bytes = Bytes.ofString(text);
+    var compressed = Compress.run(bytes, 9);
+    
+    var uncompressed = Uncompress.run(compressed);
+    arrayEq(bytesToArray(bytes), bytesToArray(uncompressed));
+    
+    var uncompressedText = bytesToString(uncompressed);
+    assert(text == uncompressedText);
+    trace(text + " == " + uncompressedText + " OK");
   }
 }

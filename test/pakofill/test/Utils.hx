@@ -17,6 +17,11 @@ class Utils {
     return bytes;
   }
   
+  static public inline function bytesToString(bytes:Bytes):String
+  {
+    return [for (i in 0...bytes.length) String.fromCharCode(bytes.get(i))].join('');
+  }
+  
   static public function assert(cond:Bool, msg:String = ""):Void
   {
     var err = "ERROR ";
