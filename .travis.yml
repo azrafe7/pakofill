@@ -9,7 +9,7 @@ os:
 
 # you can specify futher versions as found at http://haxe.org/website-content/downloads/versions.json
 haxe:
-#  - "3.4.7"
+  - "3.4.7"
   - development
   
 matrix:
@@ -17,6 +17,8 @@ matrix:
     - haxe: development
 
 install:
+  # hxPako must be installed from git
+  - haxelib git hxPako https://github.com/azrafe7/hxPako.git
   - haxelib install travix
   # to always use the latest version of travix comment out the previous line and uncomment the next
   # - haxelib git travix https://github.com/back2dos/travix && pushd . && cd $(haxelib config)travix/git && haxe build-neko.hxml && popd
