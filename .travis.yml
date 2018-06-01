@@ -12,10 +12,30 @@ haxe:
   - "3.4.7"
   - development
   
+# see https://github.com/back2dos/travix/issues/10#issuecomment-343126503
+env:
+  - HAXE_TARGET=interp
+  - HAXE_TARGET=neko
+  - HAXE_TARGET=python
+  - HAXE_TARGET=node
+  - HAXE_TARGET=js
+  - HAXE_TARGET=flash
+  - HAXE_TARGET=java
+  - HAXE_TARGET=cpp
+  - HAXE_TARGET=cs
+  - HAXE_TARGET=php
+  - HAXE_TARGET=php7
+  - HAXE_TARGET=lua
+  
 matrix:
+  fast_finish: true
   allow_failures:
     - haxe: development
-
+    - env: HAXE_TARGET=flash   # see https://github.com/travis-ci/travis-ci/issues/8481
+  exclude:
+    - haxe: development
+    - os: osx
+    
 install:
   # hxPako must be installed from git
   - haxelib git hxPako https://github.com/azrafe7/hxPako.git
@@ -25,15 +45,6 @@ install:
   - haxelib run travix install
 
 script:
-  - haxelib run travix interp
-  - haxelib run travix neko
-  - haxelib run travix python
-  - haxelib run travix node
-  - haxelib run travix js
-  - haxelib run travix flash
-  - haxelib run travix java
-  - haxelib run travix cpp
-  - haxelib run travix cs
-  - haxelib run travix php
-  - haxelib run travix php7
-  - haxelib run travix lua
+  - haxelib run travix $HAXE_TARGET
+  # force usage of hxPako for both Compress/Uncompress
+  - haxelib run travix $HAXE_TARGET -D PAKOFILL_HXPAKO
