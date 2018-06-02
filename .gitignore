@@ -6,6 +6,8 @@ bin-release/
 
 # Other files and folders
 .settings/
+lua53/
+hererocks.py
 
 # Executables
 *.swf
