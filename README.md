@@ -2,9 +2,9 @@
 A compress/uncompress polyfill useful for targets that don't directly support them.
 
 ## overview
-This lib tries to fill in the `run()` functions in `haxe.zip.Compress/Uncompress` when they're not directly supported. 
+This lib tries to fill-in the `run()` functions in `haxe.zip.Compress/Uncompress` when they're not directly supported. 
 
-It does so with customs versions that fall back to using [hxPako](https://github.com/azrafe7/hxPako) if no supported implementation is available.
+It does so with custom versions that fall back to using [hxPako](https://github.com/azrafe7/hxPako) if no supported implementation is available.
 
 For example the _plain_ js target doesn't have an implementation for compressing bytes yet. This lib aims to fix that, using a `run()` function with the same signature of that implemented in `haxe.zip`.
 
@@ -12,7 +12,7 @@ It's _almost_ a drop-in replacement.
 
 The **only** thing that you have to do is `import pakofill.Compress/Uncompress` instead of `import haxe.zip.Compress/Uncompress`.
 
-(**NOTE:** this is intended - for transparency/easy-debugging -, as after thinking about it I came to the conclusion that shadowing `haxe.zip` directly would cause more harm than good)
+(**NOTE:** this is for transparency: shadowing `haxe.zip` directly would cause more harm than good)
 
 ## install
 Since this lib depends on `hxPako`, you'll have to install that first.
@@ -67,9 +67,9 @@ You can override this behaviour with a set of compiler defines:
 Or you can explicitly choose which implementation to use by calling `pakofill.Compress.hxPakoRun()` or `pakofill.Compress.haxeZipRun()` (same for `Uncompress`). 
 
 ## supported targets
-This should work for most targets (`neko,python,node,js,java,cpp,cs,php`) with haxe 3.4.7+.
+This should work for most targets (`hxnodejs,js,cpp,cs,java,hl,neko,python`) with haxe 3.4.7+.
 
-flash and hl have some issues on travis (but should be ok locally).
+flash and hl have some issues on travis ATM (but should be ok locally).
 
 lua is not currently passing the tests.
 
