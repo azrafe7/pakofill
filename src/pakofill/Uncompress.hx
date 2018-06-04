@@ -54,7 +54,7 @@ class Uncompress {
 
 
   inline public static function run(bytes:haxe.io.Bytes, ?bufSize:Int):haxe.io.Bytes
-	{
+  {
     switch (USED_IMPLEMENTATION) 
     {
       case ZipImplementation.HAXE:
@@ -69,7 +69,7 @@ class Uncompress {
   }
   
   public static function hxPakoRun(bytes:haxe.io.Bytes, ?bufSize:Int):haxe.io.Bytes
-	{
+  {
     //trace(pakofill.test.Macros.getPosMethodName());
     var options:pako.Inflate.InflateOptions = {chunkSize:bufSize};
     var inflator = new pako.Inflate(options);
@@ -81,11 +81,11 @@ class Uncompress {
     }
     
     return inflator.result.view.buffer;
-	}
+  }
   
   public static function haxeZipRun(bytes:haxe.io.Bytes, ?bufSize:Int):haxe.io.Bytes
   {
     //trace(pakofill.test.Macros.getPosMethodName());
     return haxe.zip.Uncompress.run(bytes, bufSize);
-	}
+  }
 }

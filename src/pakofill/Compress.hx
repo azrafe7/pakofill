@@ -47,7 +47,7 @@ class Compress {
 
 
   inline public static function run(bytes:haxe.io.Bytes, level:Int):haxe.io.Bytes
-	{
+  {
     switch (USED_IMPLEMENTATION) 
     {
       case ZipImplementation.HAXE:
@@ -74,11 +74,11 @@ class Compress {
     }
     
     return deflator.result.view.buffer;
-	}
+  }
   
   public static function haxeZipRun(bytes:haxe.io.Bytes, level:Int):haxe.io.Bytes
   {
     //trace(pakofill.test.Macros.getPosMethodName());
     return haxe.zip.Compress.run(bytes, level);
-	}
+  }
 }
