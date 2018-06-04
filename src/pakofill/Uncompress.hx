@@ -11,17 +11,24 @@ class Uncompress {
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HXPAKO;
   
-// force native impl on flash, as it doesn't support "try/catch as a right-side expression"
-// (https://github.com/HaxeFoundation/haxe/issues/7117)
-#elseif (PAKOFILL_UNZIP_HAXE || PAKOFILL_HAXE || flash)
+#elseif (PAKOFILL_UNZIP_HAXE || PAKOFILL_HAXE)
 
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = HAXE;
   
+#elseif (flash)
+
+  //NOTE: flash will automatically choose the native one.
+  static public var USED_IMPLEMENTATION(default, null):ZipImplementation = {
+    trace('FLASH: using ${ZipImplementation.HAXE}');
+    HAXE;
+  }
+  
 #else
 
+  /**
+   * Decide which impl to use based on whether it's available natively.
+   **/
   static public var USED_IMPLEMENTATION(default, null):ZipImplementation = {
-    
-    // decide which impl to use based on whether it's available natively
     
     var bytes = haxe.io.Bytes.alloc(8);
     //[120, 156, 3, 0, 0, 0, 0, 1] minimal gzipped bytes
